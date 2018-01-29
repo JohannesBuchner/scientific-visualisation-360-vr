@@ -28,7 +28,11 @@ template = """
 
 global_settings { assumed_gamma 1.2 }
 
-//Place the camera
+// Place the 360 degree VR camera
+// The parameters below set the distance between eyes
+// location of the camera (y is up) 
+// and the angle (left-right)
+
 // ODS Left/Right - Docs: https://www.clodo.it/blog/?p=80
 #declare odsIPD = 0.0065; // Interpupillary distance
 #declare odsVerticalModulation = 0.2; // Use 0.0001 if you don't care about Zenith & Nadir zones.
@@ -37,6 +41,16 @@ global_settings { assumed_gamma 1.2 }
 #declare odsLocationZ = 0;
 #declare odsHandedness = -1; // "-1" for left-handed or "1" for right-handed
 #declare odsAngle = 0; // Rotation, clockwise, in degree.              
+
+// these formulae map pixels on the image to locations and directions in the model 
+// You need POV-ray 3.7.1 or higher.
+// The basics are explained here:
+// https://developers.google.com/vr/jump/rendering-ods-content.pdf
+// select(-y,a,b) chooses whether you are in the left or right eye
+// The following two angles are often used:
+// theta = ((x+select(-y,0.,0.5)+odsAngle/360)) * 2 * pi - pi
+// phi = pi/2 - select(y, -1+2*(y+0.5), 1-2*y) * pi
+// *pow(abs(sin(phi)), odsVerticalModulation) does the polar correction (ODS approximation invalid there)
 
 camera {
   user_defined
