@@ -28,7 +28,8 @@ To create the povray files, run::
 
 	$ python simple.py
 
-Take a look at frame-00000.pov for an example output. The top part is the left eye's view, the bottom is the right eye view.
+Take a look at frame-00000.pov for an example output. 
+POV-Ray documentation can be found at http://www.povray.org/ with a gallery of existing objects http://objects.povworld.org/cat and award-winning results: http://hof.povray.org/
 
 To create images through raytracing, run::
 
@@ -36,7 +37,8 @@ To create images through raytracing, run::
 
 You need povray 3.7.1 or higher to run this!
 
-Take a look at frame-00000.png for an example output.
+Take a look at frame-00000.png for an example output. The top part is the left eye's view, the bottom is the right eye view.
+
 
 Next, we need to turn the image sequence into a movie::
 
@@ -82,5 +84,13 @@ Click below to play:
 
 Or go to https://vimeo.com/253178116.
 	
+Here I re-used Neil Alexander's flapping bird from: http://objects.povworld.org/objects/cat/Nature/Animals/
 
+
+License
+=========
+
+My code is free to be reused under the BSD 2-clause license.
+
+My videos are released under a Creative Commons license.
 
